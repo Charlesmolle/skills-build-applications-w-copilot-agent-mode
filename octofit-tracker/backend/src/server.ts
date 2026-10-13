@@ -1,4 +1,5 @@
 import express, { ErrorRequestHandler } from 'express';
+import cors from 'cors';
 import { connectDatabase } from './config/database.js';
 import activitiesRouter from './routes/activities.js';
 import leaderboardRouter from './routes/leaderboard.js';
@@ -12,7 +13,11 @@ const codespaceName = process.env.CODESPACE_NAME;
 const apiBaseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : 'http://localhost:8000';
+const frontendOrigin = codespaceName
+  ? `https://${codespaceName}-5173.app.github.dev`
+  : 'http://localhost:5173';
 
+app.use(cors({ origin: frontendOrigin }));
 app.use(express.json());
 app.get('/health', (_request, response) => {
   response.json({ status: 'ok', apiBaseUrl });
