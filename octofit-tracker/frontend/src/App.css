@@ -1,0 +1,13 @@
+.hero-panel {
+  color: #fff;
+  background: linear-gradient(120deg, #0d6efd, #563dff);
+  box-shadow: 0 1rem 3rem rgba(13, 110, 253, 0.2);
+}
+
+.hero-panel p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+th {
+  white-space: nowrap;
+}
